@@ -1,3 +1,11 @@
+const startButton = document.querySelector(".startGameButton");
+const rockButton = document.querySelector(".rockButton");
+const paperButton = document.querySelector("paperButton");
+const scissorsButton = document.querySelector(".scissorsButton");
+const gameResult = document.querySelector(".gameResult")
+
+
+
 let numberOfGamesPlayed = 0;
 let myWins = 0;
 let myLosses = 0;
