@@ -14,10 +14,14 @@
           Remember - rock beats scissors, scissors beats paper and paper beats rock.
         </p>
       </header>
+      <div class="center">
+        <input id="playerName" type="text" value="Enter your name here...">
+        <button onclick="getPlayerName()">Submit</button>
+        <p id="usernameAlert" class="alert-text"></p>
+      </div>
       <div class="section">
         <h2>Which do you choose?</h2>
         <div class="center end-section">
-          <!-- Make these buttons clickable. Each button should select the player move and store it in the playerMove variable-->
           <input id="rockButton" class ="image-buttons" type="image" src="images\rock.png" alt="Rock">
           <input id="paperButton" class="image-buttons" type="image" src="images\paper.png" alt="Paper">
           <input id="scissorsButton" class="image-buttons" type="image" src="images\scissors.png" alt="Scissors">
@@ -26,25 +30,25 @@
       </div>
         <h2>Most recent round result:</h2>
         <h3 id="gameDescription"></h3> <!-- Print the computer's choice in a string "The computer chose *rock*.". -->
-        <h2 id="gameResult" class="emphasiseResult"></h2> <!-- Announce 'You win!' or 'You lose' based on the outcome. -->
+        <h2 id="gameResult" class="emphasise-result"></h2> <!-- Announce 'You win!' or 'You lose' based on the outcome. -->
       </div>
       <div class="stats-section center section">
-        <h2>Your stats</h2> <!-- These stats need to increment each game based on the game outcome. -->
+        <h2 id="playerStats">Your stats</h2>
         <div>
           <p>Total wins:</p><br> <!-- Print the totalWins variable. -->
-        <p id="wins" class="largerNumber">0</p>
+        <p id="wins" class="large-number">0</p>
         </div>
         <div>
           <p>Total losses:</p><br> <!-- Print the totalLosses variable. -->
-          <p id="losses" class="largerNumber">0</p>
+          <p id="losses" class="large-number">0</p>
         </div>
         <div>
           <p>Total draws:</p><br> <!-- Print the totalDraws variable. -->
-          <p id="draws" class="largerNumber">0</p>
+          <p id="draws" class="large-number">0</p>
         </div>
         <div>
           <p>Total games played:</p><br> <!-- Print the totalGamesPlayed variable. -->
-          <p id="gamesPlayed" class="largerNumber">0</p>
+          <p id="gamesPlayed" class="large-number">0</p>
         </div>
       </div>
     </div>

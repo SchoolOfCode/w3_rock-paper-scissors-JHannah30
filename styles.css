@@ -68,11 +68,15 @@ h3 {
     margin: 0 1% 0 1%;
 }
 
-.emphasiseResult {
+.emphasise-result {
     font-size: 300%;
 }
 
-.largerNumber {
+.large-number {
     font-size: 200%;
     font-weight: bold;
+}
+
+.alert-text {
+    color: #BB2532;
 }

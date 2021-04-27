@@ -7,6 +7,8 @@ const wins = document.querySelector("#wins");
 const losses = document.querySelector("#losses");
 const draws = document.querySelector("#draws");
 const gamesPlayed = document.querySelector("#gamesPlayed");
+const usernameAlert = document.querySelector("#usernameAlert");
+const playerStats = document.querySelector("#playerStats");
 
 // Declaring variables for game stats //
 let totalGamesPlayed = 0;
@@ -14,8 +16,16 @@ let totalWins = 0;
 let totalLosses = 0;
 let totalDraws = 0;
 
-// Displaying game stat variables on the webpage //
-
+// Gathering user's name //
+function getPlayerName() {
+    let playerName = document.getElementById("playerName").value;
+    if (playerName.length > 10) {
+        usernameAlert.innerText = "Your name must be less than 10 characters."
+    } else {
+        usernameAlert.innerText = "";
+        playerStats.innerText = "Take a look at your stats, " + playerName + ".";
+    }
+}
 
 // Function for computer's choice //
 function getComputerMove() {
