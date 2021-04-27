@@ -1,21 +1,103 @@
-const startButton = document.querySelector(".startGameButton");
-const rockButton = document.querySelector(".rockButton");
-const paperButton = document.querySelector("paperButton");
-const scissorsButton = document.querySelector(".scissorsButton");
-const gameResult = document.querySelector(".gameResult")
+const rockButton = document.querySelector("#rockButton");
+const paperButton = document.querySelector("#paperButton");
+const scissorsButton = document.querySelector("#scissorsButton");
+const gameResult = document.querySelector("#gameResult");
+const gameDescription = document.querySelector("#gameDescription");
+const wins = document.querySelector("#wins");
+const losses = document.querySelector("#losses");
+const draws = document.querySelector("#draws");
+const gamesPlayed = document.querySelector("#gamesPlayed");
+
+// Declaring variables for game stats //
+let totalGamesPlayed = 0;
+let totalWins = 0;
+let totalLosses = 0;
+let totalDraws = 0;
+
+// Displaying game stat variables on the webpage //
 
 
+// Function for computer's choice //
+function getComputerMove() {
+    const computerChoices = ["rock", "paper", "scissors"];
+    return computerChoices[Math.floor(Math.random() * computerChoices.length)];
+}
 
-let numberOfGamesPlayed = 0;
-let myWins = 0;
-let myLosses = 0;
-let myDraws = 0;
-let replayGame = true;
+// Checking & announcing game result based on player choosing rock //
+function playerChoosesRock() {
+    let computerMove = getComputerMove();
+    gameDescription.innerText = "The computer chose " + computerMove + ".";
 
+    if (computerMove === "paper") {
+        gameResult.innerText = "You lose.";
+        totalLosses++;
+        losses.innerText = totalLosses;
+    } else if (computerMove === "scissors") {
+        gameResult.innerText = "You win.";
+        totalWins++;
+        wins.innerText = totalWins;
+    } else {
+        gameResult.innerText = "Its a tie."
+        totalDraws++;
+        draws.innerText = totalDraws;
+    }
+    totalGamesPlayed++;
+    gamesPlayed.innerText = totalGamesPlayed;
+}
+rockButton.addEventListener("click", playerChoosesRock);
+
+
+// Checking & announcing game result based on player choosing paper //
+function playerChoosesPaper() {
+    let computerMove = getComputerMove();
+    gameDescription.innerText = "The computer chose " + computerMove + ".";
+
+    if (computerMove === "scissors") {
+        gameResult.innerText = "You lose.";
+        totalLosses++;
+        losses.innerText = totalLosses;
+    } else if (computerMove === "rock") {
+        gameResult.innerText = "You win.";
+        totalWins++;
+        wins.innerText = totalWins;
+    } else {
+        gameResult.innerText = "Its a tie."
+        totalDraws++;
+        draws.innerText = totalDraws;
+    }
+    totalGamesPlayed++;
+    gamesPlayed.innerText = totalGamesPlayed;
+}
+paperButton.addEventListener("click", playerChoosesPaper);
+
+// Checking & announcing game result based on player choosing scissors //
+function playerChoosesScissors() {
+    let computerMove = getComputerMove();
+    gameDescription.innerText = "The computer chose " + computerMove + ".";
+
+    if (computerMove === "rock") {
+        gameResult.innerText = "You lose.";
+        totalLosses++;
+        losses.innerText = totalLosses;
+    } else if (computerMove === "paper") {
+        gameResult.innerText = "You win.";
+        totalWins++;
+        wins.innerText = totalWins;
+    } else {
+        gameResult.innerText = "Its a tie."
+        totalDraws++;
+        draws.innerText = totalDraws;
+    }
+    totalGamesPlayed++;
+    gamesPlayed.innerText = totalGamesPlayed;
+}
+scissorsButton.addEventListener("click", playerChoosesScissors);
+
+/*
 // While loop so user can keep playing //
 while (replayGame === true) {
 
-    // Get user input. Convert to lowercase and store it as 'playerMove' //
+     // Get user input. Convert to lowercase and store it as 'playerMove' //
     let userInput = prompt("Do you choose rock, paper or scissors?");
     let playerMove = userInput.toLowerCase();
 
@@ -28,7 +110,6 @@ while (replayGame === true) {
     }
 
     // Function to generate random computer move from an array //
-    // ** Study this code some more until you can write it yourself with no help ** //
     const computerChoices = ["rock", "paper", "scissors"];
 
     function getComputerMove(computerChoices) {
@@ -44,40 +125,40 @@ while (replayGame === true) {
         // Rock Possibilities
         if (playerMove === "rock") {
             if  (computerMove === "scissors") {
-                myWins++;
+                totalWins++;
                 return 1;
             }
             if (computerMove === "paper") {
-                myLosses++;
+                totalLosses++;
                 return -1;
             }
-            myDraws++;
+            totalDraws++;
             return 0;
         }
         // Paper Possibilities
         if (playerMove === "paper") {
             if  (computerMove === "rock") {
-                myWins++;
+                totalWins++;
                 return 1;
             }
             if (computerMove === "scissors") {
-                myLosses++;
+                totalLosses++;
                 return -1;
             }
-            myDraws++;
+            totalDraws++;
             return 0;
         }
         // Scissors Possibilities
         if (playerMove === "scissors") {
             if  (computerMove === "paper") {
-                myWins++;
+                totalWins++;
                 return 1;
             }
             if (computerMove === "rock") {
-                myLosses++;
+                totalLosses++;
                 return -1;
             }
-            myDraws++;
+            totalDraws++;
             return 0;
         }
     }
@@ -97,21 +178,19 @@ while (replayGame === true) {
         console.log("You lose.");
     }
 
-    console.log("You have played " + numberOfGamesPlayed + "games, with " + myWins + " wins, " + myLosses + " losses and " + myDraws + " draws.");
-
     // Ask if the player wants to play again //
     let playAgain = confirm("Would you like to play again?");
 
     if (playAgain === true) {
-        numberOfGamesPlayed++;
+        totalGamesPlayed++;
         alert("Great. Let's see how we do next turn.");
     }
 
     else {
         replayGame = false;
         alert("Thanks for playing. Let's see how you did...");
-        alert("You have played " + numberOfGamesPlayed + " games, with " + myWins + " wins, " + myLosses + " losses and " + myDraws + " draws.");
+        alert("You have played " + totalGamesPlayed + " games, with " + totalWins + " wins, " + totalLosses + " losses and " + totalDraws + " draws.");
     }
     
 }
-
+*/
